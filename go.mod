@@ -1,4 +1,4 @@
-module github.com/webber/simplebank
+module github.com/edwillam1007/simplebank
 
 go 1.15
 
