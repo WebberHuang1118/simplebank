@@ -42,3 +42,6 @@ JOIN pg_catalog.pg_locks         blocking_locks
 
 JOIN pg_catalog.pg_stat_activity blocking_activity ON blocking_activity.pid = blocking_locks.pid
 WHERE NOT blocked_locks.granted;
+
+3. Overide config with env
+e.q. SERVER_ADDRESS=0.0.0.0:8081 make server -> run server on port 8081
