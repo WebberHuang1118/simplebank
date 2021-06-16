@@ -4,7 +4,6 @@ go 1.15
 
 require (
 	github.com/gin-gonic/gin v1.7.2
-	github.com/go-playground/validator v9.31.0+incompatible
 	github.com/go-playground/validator/v10 v10.4.1
 	github.com/golang/mock v1.5.0
 	github.com/lib/pq v1.10.2
