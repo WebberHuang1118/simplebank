@@ -45,3 +45,6 @@ WHERE NOT blocked_locks.granted;
 
 3. Overide config with env
 e.q. SERVER_ADDRESS=0.0.0.0:8081 make server -> run server on port 8081
+
+4. Generate mock for db.Store interface
+$ mockgen -destination db/mock/store.go github.com/edwillam1007/simplebank/db/sqlc Store
