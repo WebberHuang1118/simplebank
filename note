@@ -50,4 +50,4 @@ e.q. SERVER_ADDRESS=0.0.0.0:8081 make server -> run server on port 8081
 $ mockgen -destination db/mock/store.go github.com/edwillam1007/simplebank/db/sqlc Store
 
 5. Create migration schema
-$ createmigrate create -ext sql -dir db/migration -seq add_users
+$ migrate create -ext sql -dir db/migration -seq add_users
