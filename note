@@ -51,3 +51,22 @@ $ mockgen -destination db/mock/store.go github.com/edwillam1007/simplebank/db/sq
 
 5. Create migration schema
 $ migrate create -ext sql -dir db/migration -seq add_users
+
+6. Build docker file
+$ docker build -t simplebank:latest .
+
+7. Run container
+$ docker run --name simplebank -p 8080:8080 simplebank:latest
+
+8. Run container with GIN in default mode
+$ docker run --name simplebank -p 8080:8080 -e GIN_MODE=release simplebank:latest
+
+9. Run container with assing postgres address
+$ docker run --name simplebank -p 8080:8080 -e GIN_MODE=release -e DB_SOURCE="postgresql://root:secret@192.168.1.2:5432/simple_bank?sslmode=disable" simplebank:latest
+
+10. Create our own network
+$ docker network create bank-network
+    10.1 link container to our network
+    $ docker network connect bank-network postgres12
+    10.2 using container name to connect postgres
+    $ docker run --name simplebank --network bank-network -p 8080:8080 -e GIN_MODE=release -e DB_SOURCE="postgresql://root:secret@postgres12:5432/simple_bank?sslmode=disable" simplebank:latest
