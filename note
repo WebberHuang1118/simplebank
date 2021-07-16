@@ -70,3 +70,9 @@ $ docker network create bank-network
     $ docker network connect bank-network postgres12
     10.2 using container name to connect postgres
     $ docker run --name simplebank --network bank-network -p 8080:8080 -e GIN_MODE=release -e DB_SOURCE="postgresql://root:secret@postgres12:5432/simple_bank?sslmode=disable" simplebank:latest
+
+11. start docker compose
+$ docker-compose up
+
+12. stop docker compose
+$ docker-compose down
