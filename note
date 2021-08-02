@@ -76,3 +76,18 @@ $ docker-compose up
 
 12. stop docker compose
 $ docker-compose down
+
+13. AWS
+bbLW1qsCJH9n6AJyFr2I
+simple-bank.c423peqak5tm.ap-northeast-2.rds.amazonaws.com
+
+14. Create random key
+$ openssl rand -hex 64 | head -c 32
+
+15. aws cli
+    15.1 install
+        https://docs.aws.amazon.com/zh_tw/cli/latest/userguide/install-cliv2-linux.html
+    15.2 get secrets
+        $ aws secretsmanager get-secret-value --secret-id simple_bank --query SecretString
+    15.3 convert by jq
+        $ aws secretsmanager get-secret-value --secret-id simple_bank --query SecretString --output text | jq -r 'to_entries|map("\(.key)=\(.value)")|.[]' > app.env
