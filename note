@@ -96,3 +96,18 @@ $ openssl rand -hex 64 | head -c 32
     16.1 login
         aws ecr get-login-password | docker login --username AWS --password-stdin <ECR URI> (without repository name)
         e.q. $ aws ecr get-login-password | docker login --username AWS --password-stdin 087555703757.dkr.ecr.ap-northeast-2.amazonaws.com
+
+17. **** How to run
+    17.1 Use the docker image on ECR and connect to AWS Postgres rds
+        17.1.1 login AWS ECR
+            aws ecr get-login-password | docker login --username AWS --password-stdin <ECR URI> (without repository name)
+            e.q. $ aws ecr get-login-password | docker login --username AWS --password-stdin 087555703757.dkr.ecr.ap-northeast-2.amazonaws.com
+        17.1.2 pull ECR latest docker image
+            docker pull <image URI>
+            e.q. $docker pull 087555703757.dkr.ecr.ap-northeast-2.amazonaws.com/simplebank:9673de31132ed1ee6375740af289d318ffa63f2c
+        17.1.3 Run docker container
+            docker run -p 8080:8080 <Image ID>
+            e.q. docker run -p 8080:8080 629fea85b145
+        17.1.4 User Postman to connect to simple_bank server
+        PS: AWS settings refer to Part 26 to Part 29 
+
