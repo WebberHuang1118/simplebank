@@ -109,5 +109,12 @@ $ openssl rand -hex 64 | head -c 32
             docker run -p 8080:8080 <Image ID>
             e.q. docker run -p 8080:8080 629fea85b145
         17.1.4 User Postman to connect to simple_bank server
-        PS: AWS settings refer to Part 26 to Part 29 
+        PS: AWS settings refer to Part 26 to Part 29
+    17.2 Use docker compose to run db and server containers
+        17.2.1 Mark "source /app/app.env" in start.sch
+        17.2.2 run all containers
+            $ docker-compose up
+        17.2.3 User Postman to connect to simple_bank server
+        17.2.4 stop all containers
+            $ docker-compose up
 
